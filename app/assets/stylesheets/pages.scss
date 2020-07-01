@@ -1,0 +1,30 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#posts {
+  margin-top: 40px;
+}
+
+.table-start{
+  background-color: #007bff;
+  align-items: center;
+  color: white;
+  height: 50px;
+  justify-content:space-between;
+  display: flex;
+  line-height: 50px;
+}
+
+.show-All-post-title{
+  margin-left: 10px;
+  align-items: center;
+  display: inline-block!important;
+}
+
+.new-button{
+  margin-right: 10px;
+}
+
+.action {
+  text-align: center
+}

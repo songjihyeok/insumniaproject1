@@ -1,0 +1,46 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+  background-color: #007bff !important;
+}
+
+.navbar-brand {
+font-weight: bold;
+ color: white!important;
+}
+.nav-link {
+ color: white!important;
+}
+
+.display-4{
+  font-weight: bold;
+  color: white;
+}
+
+.jumbotron {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 350px;
+  text-align: center!important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images.unsplash.com/photo-1428353077903-d09b3e000f37?ixlib=rb-1.2.1&auto=format&fit=crop&w=2247&q=80);
+}
+
+.lead{
+  color: white;
+
+}
+
+.btn-lg, .btn-group-lg > .btn {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  line-height: 1.5;
+  border-radius: .2rem;
+}
+
+
+
+.table th{
+  text-align: center;
+  background-color: #F8F9FA!important;
+}

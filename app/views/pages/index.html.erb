@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <h1 class="display-4">샘플</h1>
+    <p class="lead">교육용 블로그 샘플입니다.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">게시글 보러가기</a>
+      <h2 class="bloglength">1</h2></br>
+    <button class="btn btn-primary btn-plus">+</button>
+    <button class="btn btn-primary btn-minus">-</button>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">제목</th>
+        <th scope="col">내용</th>
+        <th scope="col">작성자</th>
+        <th scope="col">비고</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @post.each do |post| %>
+        <tr>
+          <td><%= link_to post.title, post_path(post) %></td>
+          <td><%= post.body %></td>
+          <td>작성자 : </td>
+          <td class="action"><%= link_to '수정', edit_post_path(post) %> / <%= link_to '삭제', post_path(post), method: :delete, data: { confirm: "are you sure?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+
+<div class="container" id="posts">
+  <table class="table">
+    <thead>
+      <div class="table-start">
+        <h3 class="show-All-post-title">모든 게시물 보기</h3>
+        <button class="btn btn-light new-button"><%= link_to '새 글 작성', new_post_path %></button>
+      </div>
+    </thead>
+
+    <tbody>
+      <% @post.each do |post| %>
+        <tr>
+          <td><%= link_to post.title, post_path(post) %></td>
+          <td><%= post.body %></td>
+          <td><%= link_to '수정', edit_post_path(post) %></td>
+          <td><%= link_to '삭제', post_path(post), method: :delete, data: { confirm: "are you sure?" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>

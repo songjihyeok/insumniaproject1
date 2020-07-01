@@ -1,0 +1,10 @@
+
+<div class="container">
+  <h1>내용</h1>
+  <div class="list-group">
+    <li class="list-group-item">제목 : <%= @post.title %></li>
+    <li class="list-group-item">내용 : <%= @post.body %></li>
+    <li class="list-group-item">작성자 : </li>
+  </div>
+  <%= link_to "뒤로 가기", posts_path %>
+</div>
