@@ -1,10 +1,63 @@
-
 <div class="container">
   <h1>내용</h1>
   <div class="list-group">
-    <li class="list-group-item">제목 : <%= @post.title %></li>
-    <li class="list-group-item">내용 : <%= @post.body %></li>
-    <li class="list-group-item">작성자 : </li>
+    <li class="list-group-item">제목 :
+      <%= @post.title %></li>
+    <li class="list-group-item">내용 :
+      <%= @post.body %></li>
+    <li class="list-group-item">작성자 :
+      <%= @post.user.email %>
+    </li>
   </div>
+  <div class="row">
+    <h2>Comments</h2>
+  </div>
+  <div class="container">
+    <% @post.comments.each do |comment|  %>
+      <div class="row comment">
+        <div class="head">
+          <div class="row comment">
+            <div class="head">
+              <small>
+                <strong class='user'>
+                  작성자:
+                  <% if comment.user_id %>
+                    <%= User.find(comment.user_id).email %>
+                  <% end %>
+                </strong>
+
+              </small>
+            </div>
+            <div class="container">
+              <p>내용:
+                <%= comment.body %>
+              </p>
+              <%= link_to "삭제",[comment.post, comment],method: :delete, data: {confirm: "are you sure?"} %>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    <% end %>
+  </div>
+
+  <%= form_for ([@post, @post.comments.build])do |f| %>
+
+  <div class="form-group">
+    <label for="description">댓글 내용</label>
+    <%= f.text_area :body, class:"form-control", size: "1x5" %>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">
+      <% f.submit %>
+        제출
+      </button>
+    </div>
+
+  <% end %>
+
   <%= link_to "뒤로 가기", posts_path %>
 </div>

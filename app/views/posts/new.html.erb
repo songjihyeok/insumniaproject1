@@ -1,6 +1,7 @@
-
 <% if @post.errors.any? %>
-  <h2> the following errors </h2>
+  <h2>
+    the following errors
+  </h2>
   <ul>
     <% @post.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -8,36 +9,36 @@
   </ul>
 <% end %>
 
-
 <div class="container">
-	<div class="row">
+  <div class="row">
 
-	    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2">
 
-    		<h1>새글 작성</h1>
+      <h1>새글 작성</h1>
 
       <%= form_with scope: :post, url: posts_path, local: true do |f| %>
-    		    <div class="form-group">
-    		        <label for="title">Title</label>
-                <%= f.text_field :title, class:"form-control" %>
-    		    </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <%= f.text_field :title, class:"form-control" %>
+      </div>
 
-    		    <div class="form-group">
-    		        <label for="description">Body</label>
-                <%= f.text_area :body, class:"form-control", size: "1x5" %>
-    		    </div>
+      <div class="form-group">
+        <label for="description">Body</label>
+        <%= f.text_area :body, class:"form-control", size: "1x5" %>
+      </div>
 
-    		    <div class="form-group">
-    		        <button type="submit" class="btn btn-primary">
-    		           <% f.submit %> 제출
-    		        </button>
-                  <button class="btn btn-default">
-                      <%= link_to "취소", posts_path %>
-    		        </button>
-    		    </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          <% f.submit %>
+            제출
+          </button>
+          <button class="btn btn-default">
+            <%= link_to "취소", posts_path %>
+          </button>
+        </div>
 
       <% end %>
-		</div>
+    </div>
 
-	</div>
+  </div>
 </div>

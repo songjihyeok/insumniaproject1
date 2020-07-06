@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
     before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!, only: [:show, :destroy, :edit]
   def index
     @post = Post.all
   end
@@ -16,7 +16,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    # @post.user = current_user
+    @post.user = current_user
+
     if @post.save
       flash[:notice] = "post has been saved"
       redirect_to @post
@@ -36,9 +37,9 @@ class PostsController < ApplicationController
 
   def update
 
-    if @article.update(article_params)
-      flash[:notice] = "Article has been updated"
-      redirect_to @article
+    if @post.update(post_params)
+      flash[:notice] = "post has been updated"
+      redirect_to @post
     else
       render 'edit'
     end
